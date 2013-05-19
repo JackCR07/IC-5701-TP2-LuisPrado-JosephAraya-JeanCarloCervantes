@@ -14,9 +14,15 @@
  * Los numeros inician en 256, ya que de 0-255 estan reservados para
  * valores de single character token. 
  */
-typedef enum { 
-    T_OpenSign = 256,
-    T_CloseSign, T_Elements, T_Atributtes, T_Values, T_Text, T_Minus, T_Equal, T_Colon,
+typedef enum {
+	T_dl=256, T_html, T_script, T_dt, T_img, T_span,
+	T_a, T_dd, T_input, T_strong, T_b, T_em, T_li,
+	T_style, T_blockquote, T_embed, T_link, T_table,
+	T_body, T_footer, T_meta, T_td, T_br, T_form, 
+	T_object, T_th, T_button, T_h1, T_h2, T_h3,
+	T_h4, T_h5, T_h6, T_ol, T_tr, T_caption, T_head,
+	T_option, T_textarea, T_code, T_header, T_p, T_title,
+	T_div, T_hr, T_pre, T_ul, T_Atributtes, T_Values, T_Text, T_Minus, T_Equal, T_Colon,
     T_Slash, T_QuestionMark, T_ExclamationMark, T_XML, T_PublicIdentifier, T_DOCTYPE,
     T_NumTokenTypes
 } TokenType;
@@ -25,8 +31,16 @@ typedef enum {
 // Lista de los printable names para cada valor del token definido anteriormente.
  
 static const char *gTokenNames[T_NumTokenTypes] = {
-  "T_OpenSign", "T_CloseSign", "T_Elements", "T_Atributtes", "T_Values", "T_Text", "T_Minus", "T_Equal", "T_Colon",
-  "T_Slash", "T_QuestionMark", "T_ExclamationMark", "T_XML", "T_PublicIdentifier", "T_DOCTYPE"
+  	"T_dl", "T_html", "T_script", "T_dt", "T_img", "T_span",
+	"T_a", "T_dd", "T_input", "T_strong", "T_b", "T_em", "T_li",
+	"T_style", "T_blockquote", "T_embed", "T_link", "T_table",
+	"T_body", "T_footer", "T_meta", "T_td", "T_br", "T_form", 
+	"T_object", "T_th", "T_button", "T_h1", "T_h2", "T_h3",
+	"T_h4", "T_h5", "T_h6", "T_ol", "T_tr", "T_caption", "T_head",
+	"T_option", "T_textarea", "T_code", "T_header", "T_p", "T_title",
+	"T_div", "T_hr", "T_pre", "T_ul", "T_Atributtes", "T_Values",
+	"T_Text", "T_Minus", "T_Equal", "T_Colon", "T_Slash", "T_QuestionMark",
+	"T_ExclamationMark", "T_XML", "T_PublicIdentifier", "T_DOCTYPE"
 };
 
  
