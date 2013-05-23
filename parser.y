@@ -5,11 +5,19 @@
 	T_object T_th T_button T_h1 T_h2 T_h3
 	T_h4 T_h5 T_h6 T_ol T_tr T_caption T_head
 	T_option T_textarea T_code T_header T_p T_title
-	T_div T_hr T_pre T_ul T_Atributtes T_Values T_Text
+	T_div T_hr T_pre T_ul T_Atributtes T_Values T_Text 
+	T_XML T_PublicIdentifier T_DOCTYPE
 
 %%
 
-tag : a_tag
+xhtml :  xml doctype html_tag
+;
+xml : '<' '?' T_XML atributos '?' '>'
+|
+;
+doctype : '<' '!' T_DOCTYPE T_html T_PublicIdentifier T_Values '>'
+;
+tag : a_tag 
 | html_tag
 | script_tag
 | dt_tag
@@ -57,103 +65,106 @@ tag : a_tag
 |pre_tag
 |ul_tag
 ;
-a_tag : '<'T_a atributos'>' text '<''/'T_a'>'
+a_tag : '<' T_a atributos '>' text tag text '<' '/' T_a '>'
 ;
-html_tag : '<'T_html atributos'>' text '<''/'T_html'>' 
+html_tag : '<'T_html atributos '>' text head_tag body_tag text '<' '/' T_html '>' 
 ;
-script_tag : '<'T_script atributos'>' text '<''/'T_script'>'
+script_tag : '<' T_script atributos '>' text tag text '<' '/' T_script '>'
 ;
-dt_tag : '<'T_dt atributos'>' text '<''/'T_dt'>'
+dt_tag : '<' T_dt atributos '>'text tag text '<' '/' T_dt '>'
 ;
-img_tag : '<'T_img atributos'>' text '<''/'T_img'>'
+img_tag : '<' T_img atributos '>' text tag text '<' '/' T_img '>'
 ;
-span_tag : '<'T_span atributos'>' text '<''/'T_span'>'
+span_tag : '<' T_span atributos '>'text tag text '<' '/' T_span '>'
 ;
-dl_tag : '<'T_dl atributos'>' text '<''/'T_dl'>'
+dl_tag : '<' T_dl atributos '>' text tag text '<' '/' T_dl '>'
 ;
-dd_tag : '<'T_dd atributos'>' text '<''/'T_dd'>'
+dd_tag : '<' T_dd atributos '>' text tag text '<' '/' T_dd '>'
 ;
-input_tag : '<'T_input atributos'>' text '<''/'T_input'>'
+input_tag : '<' T_input atributos '>' text tag text '<' '/' T_input '>'
 ;
-strong_tag: '<'T_strong atributos'>' text '<''/'T_strong'>'
+strong_tag: '<' T_strong atributos '>' text tag text '<' '/' T_strong '>'
 ;
-b_tag : '<'T_b atributos'>' text '<''/'T_b'>'
+b_tag : '<' T_b atributos '>' text tag text '<' '/' T_b '>'
 ;
-em_tag : '<'T_em atributos'>' text '<''/'T_em'>' 
+em_tag : '<' T_em atributos '>' text tag text '<' '/' T_em '>' 
 ;
-li_tag : '<'T_li atributos'>' text '<''/'T_li'>'
+li_tag : '<' T_li atributos '>' text tag text '<' '/' T_li '>'
 ;
-style_tag : '<'T_style atributos'>' text '<''/'T_style'>'
+style_tag : '<' T_style atributos '>' text tag text '<' '/' T_style '>'
 ;
-blockquote_tag : '<'T_blockquote atributos'>' text '<''/'T_blockquote'>'
+blockquote_tag : '<' T_blockquote atributos '>' text tag text '<' '/' T_blockquote '>'
 ;
-embed_tag : '<'T_embed atributos'>' text '<''/'T_embed'>'
+embed_tag : '<' T_embed atributos '>' text tag text '<' '/' T_embed '>'
 ;
-link_tag : '<'T_link atributos'>' text '<''/'T_link'>'
+link_tag : '<' T_link atributos '>' text tag text '<' '/' T_link '>'
 ;
-table_tag : '<'T_table atributos'>' text '<''/'T_table'>'
+table_tag : '<' T_table atributos '>' text tag text '<' '/' T_table '>'
 ;
-body_tag : '<'T_body atributos'>' text '<''/'T_body'>'
+body_tag : '<' T_body atributos '>' text tag text '<' '/' T_body '>'
 ;
-footer_tag : '<'T_footer atributos'>' text '<''/'T_footer'>'
+footer_tag : '<' T_footer atributos '>' text tag text '<' '/' T_footer '>'
 ;
-meta_tag : '<'T_meta atributos'>' text '<''/'T_a'>'
+meta_tag : '<' T_meta atributos '/' '>'
+|
 ;
-td_tag : '<'T_td atributos'>' text '<''/'T_td'>'
+td_tag : '<' T_td atributos '>' text tag text '<' '/' T_td '>'
 ;
-br_tag : '<'T_br atributos'>' text '<''/'T_br'>'
+br_tag : '<' T_br atributos '>' text tag text '<' '/' T_br '>'
 ;
-form_tag : '<'T_form atributos'>' text '<''/'T_form'>'
+form_tag : '<' T_form atributos'>' text tag text '<' '/' T_form '>'
 ;
-object_tag : '<'T_object atributos'>' text '<''/'T_object'>'
+object_tag : '<' T_object atributos '>' text tag text '<' '/' T_object '>'
 ;
-th_tag : '<'T_th atributos'>' text '<''/'T_a'>'
+th_tag : '<' T_th atributos '>' text tag text '<' '/' T_th '>'
 ;
-button_tag : '<'T_button atributos'>' text '<''/'T_button'>'
+button_tag : '<' T_button atributos '>' text tag text '<' '/' T_button '>'
 ;
-h1_tag : '<'T_h1 atributos'>' text '<''/'T_h1'>'
+h1_tag : '<' T_h1 atributos '>' text tag text '<' '/' T_h1 '>'
 ;
-h2_tag : '<'T_h2 atributos'>' text '<''/'T_h2'>'
+h2_tag : '<' T_h2 atributos '>' text tag text '<' '/' T_h2 '>'
 ;
-h3_tag : '<'T_h3 atributos'>' text '<''/'T_h3'>'
+h3_tag : '<' T_h3 atributos '>' text tag text '<' '/' T_h3 '>'
 ;
-h4_tag : '<'T_h4 atributos'>' text '<''/'T_h4'>'
+h4_tag : '<' T_h4 atributos '>' text tag text '<' '/' T_h4 '>'
 ;
-h5_tag : '<'T_h5 atributos'>' text '<''/'T_h5'>'
+h5_tag : '<' T_h5 atributos '>' text tag text '<' '/' T_h5 '>'
 ; 
-h6_tag : '<'T_h6 atributos'>' text '<''/'T_h6'>'
+h6_tag : '<' T_h6 atributos '>' text tag text '<' '/' T_h6 '>'
 ;
-ol_tag : '<'T_ol atributos'>' text '<''/'T_ol'>'
+ol_tag : '<' T_ol atributos '>' text tag text '<' '/' T_ol '>'
 ;
-tr_tag : '<'T_tr atributos'>' text '<''/'T_tr'>'
+tr_tag : '<' T_tr atributos '>' text tag text '<' '/' T_tr '>'
 ;
-caption_tag : '<'T_caption atributos'>' text '<''/'T_caption'>'
+caption_tag : '<' T_caption atributos '>' text tag text '<' '/' T_caption '>'
 ;
-head_tag : '<'T_head atributos'>' text '<''/'T_head'>'
+head_tag : '<' T_head atributos '>'text meta_tag title_tag script_tag text '<' '/' T_head '>'
 ;
-option_tag : '<'T_option atributos'>' text '<''/'T_option'>'
+option_tag : '<' T_option atributos '>' text tag text '<' '/' T_option '>'
 ;
-textarea : '<'T_textarea atributos'>' text '<''/'T_textarea'>'
+textarea : '<' T_textarea atributos '>' text tag text '<' '/' T_textarea '>'
 ;
-code_tag : '<'T_code atributos'>' text '<''/'T_code'>'
+code_tag : '<' T_code atributos '>' text tag text '<' '/' T_code '>'
 ; 
-header_tag : '<'T_header atributos'>' text '<''/'T_header'>'
+header_tag : '<' T_header atributos '>' text tag text '<' '/' T_header '>'
 ;
-p_tag : '<'T_p atributos'>' text '<''/'T_p'>'
+p_tag : '<' T_p atributos '>' text tag text '<' '/' T_p '>'
 ;
-title_tag: '<'T_title atributos'>' text '<''/'T_title'>'
+title_tag: '<' T_title atributos '>' text tag text '<' '/' T_title '>'
 ;
-div_tag : '<'T_div atributos'>' text '<''/'T_div'>'
+div_tag : '<' T_div atributos '>' text tag text '<' '/' T_div '>'
 ;
-hr_tag : '<'T_hr atributos'>' text '<''/'T_hr'>'
+hr_tag : '<' T_hr atributos '>' text tag text '<' '/' T_hr '>'
 ;
-pre_tag : '<'T_pre atributos'>' text '<''/'T_pre'>'
+pre_tag : '<' T_pre atributos '>' text tag text '<' '/' T_pre '>'
 ;
-ul_tag : '<'T_ul atributos'>' text '<''/'T_ul'>'
+ul_tag : '<' T_ul atributos '>' text tag text '<' '/' T_ul '>'
 ;
-atributos : T_Atributtes'='T_Values
+atributos : T_Atributtes'='T_Values atributos
+|
 ;
 text: T_Text
+|
 ;
 
 %%
