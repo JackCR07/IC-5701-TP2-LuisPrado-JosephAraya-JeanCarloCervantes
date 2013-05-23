@@ -1,3 +1,7 @@
+%{
+void yyerror(char *s);
+%}
+
 %token T_dl T_html T_script T_dt T_img T_span
 	T_a T_dd T_input T_strong T_b T_em T_li
 	T_style T_blockquote T_embed T_link T_table
@@ -10,12 +14,19 @@
 
 %%
 
-xhtml :  xml doctype html_tag
-;
-xml : '<' '?' T_XML atributos '?' '>'
-|
+xhtml : doctype html_tag
 ;
 doctype : '<' '!' T_DOCTYPE T_html T_PublicIdentifier T_Values '>'
+;
+html_tag : '<'T_html atributos '>' text head_tag body_tag text '<' '/' T_html '>' 
+;
+head_tag : '<' T_head atributos '>'text meta title_tag script_tag text '<' '/' T_head '>'
+;
+script_tag : '<' T_script atributos '>' text tag text '<' '/' T_script '>'
+;
+meta: '<' T_meta atributos '/' '>'
+;
+body_tag : '<' T_body atributos '>' text tag text '<' '/' T_body '>'
 ;
 tag : a_tag 
 | html_tag
@@ -25,51 +36,49 @@ tag : a_tag
 | span_tag
 | dl_tag
 | dd_tag
-|input_tag
-|strong_tag
-|b_tag
-|em_tag
-|li_tag
-|style_tag
-|blockquote_tag
-|embed_tag
-|link_tag
-|table_tag
-|body_tag
-|footer_tag
-|meta_tag
-|td_tag
-|br_tag
-|form_tag
-|object_tag
-|th_tag
-|button_tag
-|h1_tag
-|h2_tag
-|h3_tag
-|h4_tag
-|h5_tag
-|h6_tag
-|ol_tag
-|tr_tag
-|caption_tag
-|head_tag
-|option_tag
-|textarea
-|code_tag
-|header_tag
-|p_tag
-|title_tag
-|div_tag
-|hr_tag
-|pre_tag
-|ul_tag
+| input_tag
+| strong_tag
+| b_tag
+| em_tag
+| li_tag
+| style_tag
+| blockquote_tag
+| embed_tag
+| link_tag
+| table_tag
+| body_tag
+| footer_tag
+| td_tag
+| br_tag
+| form_tag
+| object_tag
+| th_tag
+| button_tag
+| h1_tag
+| h2_tag
+| h3_tag
+| h4_tag
+| h5_tag
+| h6_tag
+| ol_tag
+| tr_tag
+| caption_tag
+| head_tag
+| option_tag
+| textarea
+| code_tag
+| header_tag
+| p_tag
+| title_tag
+| div_tag
+| hr_tag
+| pre_tag
+| ul_tag
+| meta
 ;
 a_tag : '<' T_a atributos '>' text tag text '<' '/' T_a '>'
 ;
-html_tag : '<'T_html atributos '>' text head_tag body_tag text '<' '/' T_html '>' 
-;
-script_tag : '<' T_script atributos '>' text tag text '<' '/' T_script '>'
+em_tag : '<' T_em atributos '>' text tag text '<' '/' T_em '>' 
 ;
 dt_tag : '<' T_dt atributos '>'text tag text '<' '/' T_dt '>'
 ;
@@ -81,15 +90,11 @@ dl_tag : '<' T_dl atributos '>' text tag text '<' '/' T_dl '>'
 ;
 dd_tag : '<' T_dd atributos '>' text tag text '<' '/' T_dd '>'
 ;
-input_tag : '<' T_input atributos '>' text tag text '<' '/' T_input '>'
-;
-strong_tag: '<' T_strong atributos '>' text tag text '<' '/' T_strong '>'
-;
 b_tag : '<' T_b atributos '>' text tag text '<' '/' T_b '>'
 ;
-em_tag : '<' T_em atributos '>' text tag text '<' '/' T_em '>' 
-;
 li_tag : '<' T_li atributos '>' text tag text '<' '/' T_li '>'
+;
+strong_tag: '<' T_strong atributos '>' text tag text '<' '/' T_strong '>'
 ;
 style_tag : '<' T_style atributos '>' text tag text '<' '/' T_style '>'
 ;
@@ -101,12 +106,7 @@ link_tag : '<' T_link atributos '>' text tag text '<' '/' T_link '>'
 ;
 table_tag : '<' T_table atributos '>' text tag text '<' '/' T_table '>'
 ;
-body_tag : '<' T_body atributos '>' text tag text '<' '/' T_body '>'
-;
 footer_tag : '<' T_footer atributos '>' text tag text '<' '/' T_footer '>'
-;
-meta_tag : '<' T_meta atributos '/' '>'
-|
 ;
 td_tag : '<' T_td atributos '>' text tag text '<' '/' T_td '>'
 ;
@@ -138,8 +138,6 @@ tr_tag : '<' T_tr atributos '>' text tag text '<' '/' T_tr '>'
 ;
 caption_tag : '<' T_caption atributos '>' text tag text '<' '/' T_caption '>'
 ;
-head_tag : '<' T_head atributos '>'text meta_tag title_tag script_tag text '<' '/' T_head '>'
-;
 option_tag : '<' T_option atributos '>' text tag text '<' '/' T_option '>'
 ;
 textarea : '<' T_textarea atributos '>' text tag text '<' '/' T_textarea '>'
@@ -160,6 +158,8 @@ pre_tag : '<' T_pre atributos '>' text tag text '<' '/' T_pre '>'
 ;
 ul_tag : '<' T_ul atributos '>' text tag text '<' '/' T_ul '>'
 ;
+input_tag : '<' T_input atributos '>' text tag text '<' '/' T_input '>'
+;
 atributos : T_Atributtes'='T_Values atributos
 |
 ;
@@ -171,4 +171,9 @@ text: T_Text
 
 int main() {
 return yyparse();
+}
+
+void yyerror(char *s)
+{
+
 }

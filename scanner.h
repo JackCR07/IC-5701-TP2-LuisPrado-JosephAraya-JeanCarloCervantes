@@ -22,8 +22,7 @@ typedef enum {
 	T_object, T_th, T_button, T_h1, T_h2, T_h3,
 	T_h4, T_h5, T_h6, T_ol, T_tr, T_caption, T_head,
 	T_option, T_textarea, T_code, T_header, T_p, T_title,
-	T_div, T_hr, T_pre, T_ul, T_Atributtes, T_Values, T_Text, T_Minus, T_Equal, T_Colon,
-    T_Slash, T_QuestionMark, T_ExclamationMark, T_XML, T_PublicIdentifier, T_DOCTYPE,
+	T_div, T_hr, T_pre, T_ul, T_Atributtes, T_Values, T_Text, T_XML, T_PublicIdentifier, T_DOCTYPE,
     T_NumTokenTypes
 } TokenType;
 
@@ -39,8 +38,7 @@ static const char *gTokenNames[T_NumTokenTypes] = {
 	"T_h4", "T_h5", "T_h6", "T_ol", "T_tr", "T_caption", "T_head",
 	"T_option", "T_textarea", "T_code", "T_header", "T_p", "T_title",
 	"T_div", "T_hr", "T_pre", "T_ul", "T_Atributtes", "T_Values",
-	"T_Text", "T_Minus", "T_Equal", "T_Colon", "T_Slash", "T_QuestionMark",
-	"T_ExclamationMark", "T_XML", "T_PublicIdentifier", "T_DOCTYPE"
+	"T_Text", "T_XML", "T_PublicIdentifier", "T_DOCTYPE"
 };
 
  

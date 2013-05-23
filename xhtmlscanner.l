@@ -29,14 +29,14 @@ Atributo	"accept-charset"|"xmlns"|"accept"|"accesskey"|"action"|"align"|"alink"|
 /* Reglas */
 %%
 
-"<"						{chars+=strlen(yytext); return T_OpenSign;}
-">"						{chars+=strlen(yytext); return T_CloseSign;}
-"-"						{chars+=strlen(yytext); return T_Minus;}
-"="						{chars+=strlen(yytext); return T_Equal;}
-":"						{chars+=strlen(yytext); return T_Colon;}
-"/"						{chars+=strlen(yytext); return T_Slash;}
-"?"						{chars+=strlen(yytext); return T_QuestionMark;}
-"!"						{chars+=strlen(yytext); return T_ExclamationMark;}
+"<"						{chars+=strlen(yytext); return yytext[0];}
+">"						{chars+=strlen(yytext); return yytext[0];}
+"-"						{chars+=strlen(yytext); return yytext[0];}
+"="						{chars+=strlen(yytext); return yytext[0];}
+":"						{chars+=strlen(yytext); return yytext[0];}
+"/"						{chars+=strlen(yytext); return yytext[0];}
+"?"						{chars+=strlen(yytext); return yytext[0];}
+"!"						{chars+=strlen(yytext); return yytext[0];}
 "PUBLIC"					{chars+=strlen(yytext); return T_PublicIdentifier;}
 "DOCTYPE"					{chars+=strlen(yytext); return T_DOCTYPE;}
 "dl"						{chars+=strlen(yytext); return T_dl;}
