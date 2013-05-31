@@ -9,11 +9,11 @@
  */
  
 %{
-	#include "scanner.h"
-	YYSTYPE yylval; 
+	#include "y.tab.h"
         FILE * ErrorFile;
 	int chars = 1;
 	int lines = 1;
+	
 %}
 
 
@@ -86,13 +86,13 @@ Atributo	"accept-charset"|"xmlns"|"accept"|"accesskey"|"action"|"align"|"alink"|
 "hr"						{chars+=strlen(yytext); return T_hr;}
 "pre"						{chars+=strlen(yytext); return T_pre;}
 "ul"						{chars+=strlen(yytext); return T_ul;}
-{Atributo}					{chars+=strlen(yytext); yylval.stringConstant=strdup(yytext);return T_Atributtes;}
+{Atributo}					{chars+=strlen(yytext); yylval.str=strdup(yytext);return T_Atributtes;}
 "xml"						{chars+=strlen(yytext); return T_XML;}
-\"(\\.|[^\\"])*\" 				{ chars+=strlen(yytext); yylval.stringConstant=strdup(yytext);return T_Values; }
+\"(\\.|[^\\"])*\" 				{ chars+=strlen(yytext); yylval.str=strdup(yytext);return T_Values; }
 "<!--"            				BEGIN(comment);
 "//"            				BEGIN(single_line_comment);
-[a-zA-Z0-9]+[a-zA-Z0-9]*    			{chars+=strlen(yytext); yylval.stringConstant=strdup(yytext);return T_Text;}
-[+\-*\%;,.(){}\[\]_]				{chars+=strlen(yytext); yylval.stringConstant=strdup(yytext);return T_Text;}
+[a-zA-Z0-9]+[a-zA-Z0-9]*    			{chars+=strlen(yytext); yylval.str=strdup(yytext);return T_Text;}
+[+\-*\%;,.(){}\[\]_]				{chars+=strlen(yytext); yylval.str=strdup(yytext);return T_Text;}
 <comment>[^-\n]*         		{} 
 <comment>"-"+[^->\n]*    		{} 
 <comment>\n              		{++lines;}
@@ -114,3 +114,4 @@ void OpenErrorFile(){
 void CloseErrorFile(){
 fclose(ErrorFile);
 }
+
