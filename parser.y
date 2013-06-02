@@ -911,6 +911,57 @@ text :T_Text{
 	Texto_t* nuevoTexto = crearTexto(yylval.str);
 	agregarTexto(listaTextosActual,nuevoTexto);
 }
+| T_Atributtes {
+	Texto_t* nuevoTexto = crearTexto(yylval.str);
+	agregarTexto(listaTextosActual,nuevoTexto);
+}
+| T_dl {agregarTexto(listaTextosActual,crearTexto("dl"));}
+| T_html {agregarTexto(listaTextosActual,crearTexto("html"));}
+| T_script {agregarTexto(listaTextosActual,crearTexto("script"));}
+| T_dt {agregarTexto(listaTextosActual,crearTexto("dt"));}
+| T_img {agregarTexto(listaTextosActual,crearTexto("img"));}
+| T_span {agregarTexto(listaTextosActual,crearTexto("span"));}
+| T_a {agregarTexto(listaTextosActual,crearTexto("a"));}
+| T_dd {agregarTexto(listaTextosActual,crearTexto("dd"));}
+| T_input {agregarTexto(listaTextosActual,crearTexto("input"));} 
+| T_strong {agregarTexto(listaTextosActual,crearTexto("strong"));} 
+| T_b {agregarTexto(listaTextosActual,crearTexto("b"));}
+| T_em {agregarTexto(listaTextosActual,crearTexto("em"));} 
+| T_li {agregarTexto(listaTextosActual,crearTexto("li"));}
+| T_style {agregarTexto(listaTextosActual,crearTexto("style"));}
+| T_blockquote {agregarTexto(listaTextosActual,crearTexto("blockquote"));}
+| T_embed {agregarTexto(listaTextosActual,crearTexto("embed"));}
+| T_link {agregarTexto(listaTextosActual,crearTexto("link"));}
+| T_table {agregarTexto(listaTextosActual,crearTexto("table"));}
+| T_body {agregarTexto(listaTextosActual,crearTexto("body"));}
+| T_footer {agregarTexto(listaTextosActual,crearTexto("footer"));}
+| T_meta {agregarTexto(listaTextosActual,crearTexto("meta"));}
+| T_td {agregarTexto(listaTextosActual,crearTexto("td"));}
+| T_br {agregarTexto(listaTextosActual,crearTexto("br"));}
+| T_form {agregarTexto(listaTextosActual,crearTexto("form"));}
+| T_object {agregarTexto(listaTextosActual,crearTexto("object"));}
+| T_th {agregarTexto(listaTextosActual,crearTexto("th"));}
+| T_button {agregarTexto(listaTextosActual,crearTexto("button"));}
+| T_h1 {agregarTexto(listaTextosActual,crearTexto("h1"));}
+| T_h2 {agregarTexto(listaTextosActual,crearTexto("h2"));}
+| T_h3 {agregarTexto(listaTextosActual,crearTexto("h3"));}
+| T_h4 {agregarTexto(listaTextosActual,crearTexto("h4"));}
+| T_h5 {agregarTexto(listaTextosActual,crearTexto("h5"));}
+| T_h6 {agregarTexto(listaTextosActual,crearTexto("h6"));}
+| T_ol {agregarTexto(listaTextosActual,crearTexto("ol"));}
+| T_tr {agregarTexto(listaTextosActual,crearTexto("tr"));}
+| T_caption {agregarTexto(listaTextosActual,crearTexto("caption"));}
+| T_head {agregarTexto(listaTextosActual,crearTexto("head"));}
+| T_option {agregarTexto(listaTextosActual,crearTexto("option"));}
+| T_textarea {agregarTexto(listaTextosActual,crearTexto("textarea"));}
+| T_code {agregarTexto(listaTextosActual,crearTexto("code"));}
+| T_header {agregarTexto(listaTextosActual,crearTexto("header"));}
+| T_p {agregarTexto(listaTextosActual,crearTexto("p"));}
+| T_title {agregarTexto(listaTextosActual,crearTexto("title"));}
+| T_div {agregarTexto(listaTextosActual,crearTexto("div"));}
+| T_hr {agregarTexto(listaTextosActual,crearTexto("hr"));}
+| T_pre {agregarTexto(listaTextosActual,crearTexto("pre"));}
+| T_ul {agregarTexto(listaTextosActual,crearTexto("ul"));}
 ;
 html : T_html;
 dctype : T_DOCTYPE
