@@ -3,7 +3,9 @@
  * Escuela de Computación
  * Curso de Compiladores e Interpretes
  * Profesor Andrei Fuentes
- * Estudiante: Jean Carlo Cervantes
+ * Estudiantes: Jean Carlo Cervantes
+ * 	        Luis Prado Rodríguez
+ 		Joseph Araya Rojas
  * Tarea Programada #1
  * Archivo: flex
  */
@@ -13,9 +15,18 @@
         FILE * ErrorFile;
 	int chars = 1;
 	int lines = 1;
-	
+	void CloseErrorFile();
+	void OpenErrorFile();
+
+	#define YY_USER_ACTION yylloc.first_line = yylloc.last_line = yylineno; \
+    yylloc.first_column = chars; yylloc.last_column = chars + yyleng - 1; \
+    chars += yyleng; \
+    yylval.str = strdup(yytext);
+
 %}
 
+
+%option yylineno
 
  /* Definiciones */
 
@@ -97,12 +108,12 @@ Atributo	"accept-charset"|"xmlns"|"accept"|"accesskey"|"action"|"align"|"alink"|
 <comment>"-"+[^->\n]*    		{} 
 <comment>\n              		{++lines;}
 <comment>"--"+">"         		{BEGIN(INITIAL);}
-<comment><<EOF>>        		{fprintf (ErrorFile,"ERROR: Unterminated comment ROW: %d", --lines);yyterminate();}
+<comment><<EOF>>        		{OpenErrorFile();fprintf (ErrorFile,"error lexico: Unterminated comment ROW: %d", --lines);CloseErrorFile();yyterminate();}
 <single_line_comment>.   		{}
 <single_line_comment>\n  		{++lines;BEGIN(INITIAL);}
 [ \t\v\f]      					{ chars += strlen(yytext); }
 [\n]       						{ lines++; chars = 1; }
-. 								{ fprintf (ErrorFile,"ERROR: ROW: %d, COLUMN:%d\n", lines, chars); chars++; }
+. 								{ OpenErrorFile();fprintf (ErrorFile,"error lexico: ROW: %d, COLUMN:%d\n", lines, chars); chars++; CloseErrorFile();}
 
 %%
 
@@ -114,4 +125,3 @@ void OpenErrorFile(){
 void CloseErrorFile(){
 fclose(ErrorFile);
 }
-
