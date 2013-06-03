@@ -11,8 +11,7 @@
 #define CYAN "\e[36m"
 #define MAGENTA "\e[35m"
 
-
-
+#define YYERROR_VERBOSE 1
 
 
 
@@ -20,7 +19,8 @@
 //Metodo que crea nuevos elementos del arbol sintactico
 //Recibe el valor del nodo, y el padre del nodo.
 
-void yyerror(char *s);
+
+void yyerror(const char* s);
 %} 
 
 %union {
@@ -36,6 +36,7 @@ void yyerror(char *s);
 	T_option T_textarea T_code T_header T_p T_title
 	T_div T_hr T_pre T_ul T_Atributtes T_Values T_Text 
 	T_XML T_PublicIdentifier T_DOCTYPE
+%locations
 
 %%
 
@@ -1002,9 +1003,9 @@ int main() {
 	return yyparse();
 }
 
-void yyerror(char *s)
+void yyerror(const char* s)
 {
-	printf("%s","FAAAAAAAAAAAAAAAAAIL");
+ fprintf(stderr,"Error en linea %d, columna %d : comentario sin terminar %s\n", yylloc.first_line, yylloc.first_column, s);
 }
 
 void agregarHijo(Nodo_t* padre, Nodo_t* hijo){
