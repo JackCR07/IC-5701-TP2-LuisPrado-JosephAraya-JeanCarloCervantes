@@ -1005,7 +1005,7 @@ int main() {
 
 void yyerror(const char* s)
 {
- fprintf(stderr,"Error en linea %d, columna %d : comentario sin terminar %s\n", yylloc.first_line, yylloc.first_column, s);
+ fprintf(stderr,"Error en linea %d, columna %d : %s\n", yylloc.first_line, yylloc.first_column, s);
 }
 
 void agregarHijo(Nodo_t* padre, Nodo_t* hijo){
