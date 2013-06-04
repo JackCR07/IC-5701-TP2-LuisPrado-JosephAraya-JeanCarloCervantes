@@ -20,7 +20,6 @@
 
 	#define YY_USER_ACTION yylloc.first_line = yylloc.last_line = yylineno; \
     yylloc.first_column = chars; yylloc.last_column = chars + yyleng - 1; \
-    chars += yyleng; \
     yylval.str = strdup(yytext);
 
 %}
