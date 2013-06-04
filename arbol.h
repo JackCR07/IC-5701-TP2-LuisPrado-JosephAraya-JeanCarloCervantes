@@ -1,10 +1,18 @@
+/**************************************************
+ *  
+ * Arbol.h  
+ * Header que contiene la declaración de
+ * variables y funciones necesitadas para el parse tre
+ * 
+ * 
+ * *****************************************/
 typedef struct Atributo{//Representa atributos de elementos html 
   char* nombreAtributo;
 	char* valorAtributo;
 	struct Atributo* siguiente;
 }Atributo_t;
 
-typedef struct ListaAtributos{
+typedef struct ListaAtributos{//Representa la lista de atributos que puede tener un elemento html
 	Atributo_t* primerAtributo;
 }ListaAtributos_t;
 
