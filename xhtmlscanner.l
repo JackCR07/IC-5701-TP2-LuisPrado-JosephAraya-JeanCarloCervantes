@@ -108,12 +108,12 @@ Atributo	"accept-charset"|"xmlns"|"accept"|"accesskey"|"action"|"align"|"alink"|
 <comment>"-"+[^->\n]*    		{} 
 <comment>\n              		{++lines;}
 <comment>"--"+">"         		{BEGIN(INITIAL);}
-<comment><<EOF>>        		{OpenErrorFile();fprintf (ErrorFile,"error lexico: Unterminated comment ROW: %d", --lines);CloseErrorFile();yyterminate();}
+<comment><<EOF>>        		{fprintf (stderr,"Error lexico: Unterminated comment ROW: %d", --lines); yyterminate();return T_Text;}
 <single_line_comment>.   		{}
 <single_line_comment>\n  		{++lines;BEGIN(INITIAL);}
 [ \t\v\f]      					{ chars += strlen(yytext); }
 [\n]       						{ lines++; chars = 1; }
-. 								{ OpenErrorFile();fprintf (ErrorFile,"error lexico: ROW: %d, COLUMN:%d\n", lines, chars); chars++; CloseErrorFile();}
+. 								{ fprintf (stderr,"Error lexico caracter no valido: ROW: %d, COLUMN:%d\n", lines, chars); chars++; return T_Text;}
 
 %%
 
