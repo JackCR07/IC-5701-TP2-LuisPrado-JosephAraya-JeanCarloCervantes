@@ -449,209 +449,209 @@ input_h2: '<' T_input atributos '>'
 	accionCabezaLeida_Arbl("input");
 }
 ;
-a_tag : info tags a_t 
-| info a_t 
+a_tag : text a_tag
+| tags a_tag 
 | a_t 
 ;
-a_t : a_t2 infos 
+a_t : a_t2  
 ;
 a_t2 :  '<' '/' T_a '>' 
 {
 	accionColaLeida_Arbl();
 }
 ;
-em_tag : info tags em_t
-| info em_t
+em_tag : text em_tag
+| tags em_tag
 | em_t
 ;
-em_t : em_t2 infos
+em_t : em_t2 
 ;
 em_t2 :  '<' '/' T_em '>' 
 {
 	accionColaLeida_Arbl();
 }
 ;
-dt_tag : info tags dt_t
-| info dt_t
+dt_tag : text dt_tag
+| tags dt_tag
 | dt_t
 ;
-dt_t : dt_t2 infos
+dt_t : dt_t2 
 ;
 dt_t2 :  '<' '/' T_dt '>' 
 {
 	accionColaLeida_Arbl();
 }
 ;
-span_tag : info tags span_t
-| info span_t
+span_tag : text span_tag
+| tags span_tag
 | span_t
 ;
-span_t : span_t2 infos
+span_t : span_t2 
 ;
 span_t2 :  '<' '/' T_span '>' 
 {
 	accionColaLeida_Arbl();
 }
 ;
-dl_tag : info tags dl_t
-| info dl_t
+dl_tag : text dl_tag
+| tags dl_tag
 | dl_t
 ;
-dl_t : dl_t2 infos
+dl_t : dl_t2 
 ;
 dl_t2 :  '<' '/' T_dl '>' 
 {
 	accionColaLeida_Arbl();
 }
 ;
-dd_tag : info tags dd_t
-| info dd_t
+dd_tag : text dd_tag
+| tags dd_tag
 | dd_t
 ;
-dd_t : dd_t2 infos
+dd_t : dd_t2 
 ;
 dd_t2 :  '<' '/' T_dd '>' 
 {
 	accionColaLeida_Arbl();
 }
 ;
-b_tag : info tags b_t
-| info b_t
+b_tag : text b_tag
+| tags b_tag
 | b_t
 ;
-b_t : b_t2 infos
+b_t : b_t2 
 ;
 b_t2 :  '<' '/' T_b '>' 
 {
 	accionColaLeida_Arbl();
 }
 ;
-li_tag : info tags li_t
-| info li_t
+li_tag : text li_tag
+| tags li_tag
 | li_t
 ;
-li_t : li_t2 infos
+li_t : li_t2
 ;
 li_t2 :  '<' '/' T_li '>' 
 {
 	accionColaLeida_Arbl();
 }
 ;
-strong_tag : info tags strong_t
-| info strong_t
+strong_tag : text strong_tag
+| tags strong_tag
 | strong_t
 ;
-strong_t : strong_t2 infos
+strong_t : strong_t2 
 ;
 strong_t2 :  '<' '/' T_strong '>' 
 {
 	accionColaLeida_Arbl();
 }
 ;
-style_tag : info tags style_t
-| info style_t
+style_tag : text style_tag
+| tags style_tag
 | style_t
 ;
-style_t : style_t2 infos
+style_t : style_t2 
 ;
 style_t2 :  '<' '/' T_style '>' 
 {
 	accionColaLeida_Arbl();
 }
 ;
-blockquote_tag : info tags blockquote_t
-| info blockquote_t
+blockquote_tag : text blockquote_tag
+| tags blockquote_tag
 | blockquote_t
 ;
-blockquote_t : blockquote_t2 infos
+blockquote_t : blockquote_t2 
 ;
 blockquote_t2 :  '<' '/' T_blockquote '>' 
 {
 	accionColaLeida_Arbl();
 }
 ;
-embed_tag : info tags embed_t
-| info embed_t
+embed_tag : text embed_tag
+| tags embed_tag
 | embed_t
 ;
-embed_t : embed_t2 infos
+embed_t : embed_t2 
 ;
 embed_t2 :  '<' '/' T_embed '>' 
 {
 	accionColaLeida_Arbl();
 }
 ;
-link_tag : info tags link_t
-| info link_t
+link_tag : text link_tag
+| tags link_tag
 | link_t
 ;
-link_t : link_t2 infos
+link_t : link_t2 
 ;
 link_t2 :  '<' '/' T_link '>' 
 {
 	accionColaLeida_Arbl();
 }
 ;
-table_tag : info tags table_t
-| info table_t
+table_tag : text table_tag
+| tags table_tag
 | table_t
 ;
-table_t : table_t2 infos
+table_t : table_t2 
 ;
 table_t2 :  '<' '/' T_table '>' 
 {
 	accionColaLeida_Arbl();
 }
 ;
-footer_tag : info tags footer_t
-| info footer_t
+footer_tag : text footer_tag
+| tags footer_tag
 | footer_t
 ;
-footer_t : footer_t2 infos
+footer_t : footer_t2 
 ;
 footer_t2 :  '<' '/' T_footer '>' 
 {
 	accionColaLeida_Arbl();
 }
 ;
-td_tag : info tags td_t
-| info td_t
+td_tag : text td_tag
+| tags td_tag
 | td_t
 ;
-td_t : td_t2 infos
+td_t : td_t2 
 ;
 td_t2 :  '<' '/' T_td '>' 
 {
 	accionColaLeida_Arbl();
 }
 ;
-br_tag : info tags br_t
-| info br_t
+br_tag : text br_tag
+| tags br_tag
 | br_t
 ;
-br_t : br_t2 infos
+br_t : br_t2 
 ;
 br_t2 :  '<' '/' T_br '>' 
 {
 	accionColaLeida_Arbl();
 }
 ;
-form_tag : info tags form_t
-| info form_t
+form_tag : text form_tag
+| tags form_tag
 | form_t
 ;
-form_t : form_t2 infos
+form_t : form_t2 
 ;
 form_t2 :  '<' '/' T_form '>' 
 {
 	accionColaLeida_Arbl();
 }
 ;
-object_tag : info tags object_t
-| info object_t
+object_tag : text object_tag
+| tags object_tag
 | object_t
 ;
-object_t : object_t2 infos//Modificacion gramatica
+object_t : object_t2 //Modificacion gramatica
 ;
 object_t2: '<' '/' T_object '>'
 {
@@ -659,176 +659,176 @@ object_t2: '<' '/' T_object '>'
 }
 //Agregado a la gramatica
 ;
-th_tag : info tags th_t
-| info th_t
+th_tag : text th_tag
+| tags th_tag
 | th_t
 ;
-th_t : th_t2 infos
+th_t : th_t2 
 ;
 th_t2 :  '<' '/' T_th '>' 
 {
 	accionColaLeida_Arbl();
 }
 ;
-button_tag : info tags button_t
-| info button_t
+button_tag : text button_tag
+| tags button_tag
 | button_t
 ;
-button_t : button_t2 infos
+button_t : button_t2 
 ;
 button_t2 :  '<' '/' T_button '>' 
 {
 	accionColaLeida_Arbl();
 }
 ;
-h1_tag : info tags h1_t
-| info h1_t
+h1_tag : text h1_tag
+| tags h1_tag
 | h1_t
 ;
-h1_t : h1_t2 infos
+h1_t : h1_t2 
 ;
 h1_t2 :  '<' '/' T_h1 '>'
 {
 	accionColaLeida_Arbl();
 } 
 ;
-h2_tag : info tags h2_t
-| info h2_t
+h2_tag : text h2_tag
+| tags h2_tag
 | h2_t
 ;
-h2_t : h2_t2 infos
+h2_t : h2_t2 
 ;
 h2_t2 :  '<' '/' T_h2 '>' 
 {
 	accionColaLeida_Arbl();
 }
 ;
-h3_tag : info tags h3_t
-| info h3_t
+h3_tag : text h3_tag
+| tags h3_tag
 | h3_t
 ;
-h3_t : h3_t2 infos
+h3_t : h3_t2 
 ;
 h3_t2 :  '<' '/' T_h3 '>' 
 {
 	accionColaLeida_Arbl();
 }
 ;
-h4_tag : info tags h4_t
-| info h4_t
+h4_tag : text h4_tag
+| tags h4_tag
 | h4_t
 ;
-h4_t : h4_t2 infos
+h4_t : h4_t2 
 ;
 h4_t2 :  '<' '/' T_h4 '>' 
 {
 	accionColaLeida_Arbl();
 }
 ;
-h5_tag : info tags h5_t
-| info h5_t
+h5_tag : text h5_tag
+| tags h5_tag
 | h5_t
 ;
-h5_t : h5_t2 infos
+h5_t : h5_t2 
 ;
 h5_t2 :  '<' '/' T_h5 '>' 
 {
 	accionColaLeida_Arbl();
 }
 ;
-h6_tag : info tags h6_t
-| info h6_t
+h6_tag : text h6_tag
+| tags h6_tag
 | h6_t
 ;
-h6_t : h6_t2 infos
+h6_t : h6_t2 
 ;
 h6_t2 :  '<' '/' T_h6 '>' 
 {
 	accionColaLeida_Arbl();
 }
 ;
-ol_tag : info tags ol_t
-| info ol_t
+ol_tag : text ol_tag
+| tags ol_tag
 | ol_t
 ;
-ol_t : ol_t2 infos
+ol_t : ol_t2 
 ;
 ol_t2 :  '<' '/' T_ol '>' 
 {
 	accionColaLeida_Arbl();
 }
 ;
-tr_tag : info tags tr_t
-| info tr_t
+tr_tag : text tr_tag
+| tags tr_tag
 | tr_t
 ;
-tr_t : tr_t2 infos
+tr_t : tr_t2 
 ;
 tr_t2 :  '<' '/' T_tr '>' 
 {
 	accionColaLeida_Arbl();
 }
 ;
-caption_tag : info tags caption_t
-| info caption_t
+caption_tag : text caption_tag
+| tags caption_tag
 | caption_t
 ;
-caption_t : caption_t2 infos
+caption_t : caption_t2 
 ;
 caption_t2 :  '<' '/' T_caption '>' 
 {
 	accionColaLeida_Arbl();
 }
 ;
-option_tag : info tags option_t
-| info option_t
+option_tag : text option_tag
+| tags option_tag
 | option_t
 ;
-option_t : option_t2 infos
+option_t : option_t2 
 ;
 option_t2 :  '<' '/' T_option '>' 
 {
 	accionColaLeida_Arbl();
 }
 ;
-textarea_tag : info tags textarea_t
-| info textarea_t
+textarea_tag : text textarea_tag
+| tags textarea_tag
 | textarea_t
 ;
-textarea_t : textarea_t2 infos
+textarea_t : textarea_t2 
 ;
 textarea_t2 :  '<' '/' T_textarea '>' 
 {
 	accionColaLeida_Arbl();
 }
 ;
-code_tag : info tags code_t
-| info code_t
+code_tag : text code_tag
+| tags code_tag
 | code_t
 ;
-code_t : code_t2 infos
+code_t : code_t2 
 ; 
 code_t2 :  '<' '/' T_code '>' 
 {
 	accionColaLeida_Arbl();
 }
 ;
-header_tag : info tags header_t
-| info header_t
+header_tag : text header_tag
+| tags header_tag
 | header_t
 ;
-header_t : header_t2 infos
+header_t : header_t2 
 ;
 header_t2 :  '<' '/' T_header '>' 
 {
 	accionColaLeida_Arbl();
 }
 ;
-p_tag : info tags p_t
-| info p_t
+p_tag : text p_tag
+| tags p_tag
 | p_t
 ;
-p_t : p_t2 infos //Modificacion a la gramatica
+p_t : p_t2  //Modificacion a la gramatica
 ; 
 p_t2 :  '<' '/' T_p '>' 
 {
@@ -836,63 +836,63 @@ p_t2 :  '<' '/' T_p '>'
 }
 //Agregado a la gramatica
 ;
-title_tag : info title_t
+title_tag : text title_tag
 | title_t
 ;
-title_t : '<' '/' T_title '>' //PORQUE TITLE NO TIENE INFOS
+title_t : '<' '/' T_title '>' //PORQUE TITLE NO TIENE 
 {
 	accionColaLeida_Arbl();
 }
 ;
-div_tag : info tags div_t
-| info div_t
+div_tag : text div_tag
+| tags div_tag
 | div_t
 ;
-div_t : div_t2 infos
+div_t : div_t2 
 ;
 div_t2 :  '<' '/' T_div '>' 
 {
 	accionColaLeida_Arbl();
 }
 ;
-hr_tag : info tags hr_t
-| info hr_t
+hr_tag : text hr_tag
+| tags hr_tag
 | hr_t
 ;
-hr_t : hr_t2 infos
+hr_t : hr_t2 
 ;
 hr_t2 :  '<' '/' T_hr '>' 
 {
 	accionColaLeida_Arbl();
 }
 ;
-pre_tag : info tags pre_t
-| info pre_t
+pre_tag : text pre_tag
+| tags pre_tag
 | pre_t
 ;
-pre_t : pre_t2 infos
+pre_t : pre_t2 
 ;
 pre_t2 :  '<' '/' T_pre '>' 
 {
 	accionColaLeida_Arbl();
 }
 ;
-ul_tag : info tags ul_t
-| info ul_t
+ul_tag : text ul_tag
+| tags ul_tag
 | ul_t
 ;
-ul_t : ul_t2 infos
+ul_t : ul_t2 
 ;
 ul_t2 :  '<' '/' T_ul '>' 
 {
 	accionColaLeida_Arbl();
 }
 ;
-input_tag : info tags input_t
-| info input_t
+input_tag : text input_tag
+| tags input_tag
 | input_t
 ;
-input_t : input_t2 infos
+input_t : input_t2 
 ;
 input_t2 :  '<' '/' T_input '>' 
 {
@@ -982,12 +982,6 @@ values : T_Values {
 head : T_head
 ;
 atributte : T_Atributtes  {nombreAtributoLeido= yylval.str;}//Modificacion gramatica
-;
-infos: 
-| text infos
-;
-info : text infos 
-| tags
 ;
 
 %%
